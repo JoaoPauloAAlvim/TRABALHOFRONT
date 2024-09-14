@@ -22,7 +22,7 @@ O projeto foi criado como parte de um trabalho acadêmico para demonstrar a capa
 
 ## Estrutura do Projeto
 
-# **Componentes** reutilizáveis: Header, PostItem, PostList, PostForm Header.js PostItem.js PostList.js PostForm.js App.js 
+**Componentes** reutilizáveis: Header, PostItem, PostList, PostForm Header.js PostItem.js PostList.js PostForm.js App.js 
 
 ## Instalação
 
