@@ -2,14 +2,6 @@ import React from "react";
 import styled from "styled-components"
 
 export default class PostForm extends React.Component {
-  state = {
-    posts:[
-        {titulo:"",descricao:"",imagem:"",id:Math.random()}
-    ],
-    titulo:"",
-    descricao:"",
-    imagem:"",
-  };
   onChangeTitulo = (event)=>{
     this.setState({ titulo: event.target.value })
   }
