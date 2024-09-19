@@ -2,12 +2,53 @@ import React from "react";
 import styled from "styled-components";
 
 const Formulario = styled.div`
-  background-color: red;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 10px;
 `;
+
+const FormularioInputDescricao = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0px 0px 15px 15px',
+  borderRadius: '10px',
+  height: '80px',
+  width: '40%',
+  border: '1px solid black',
+  resize: 'none',
+  whiteSpace: 'pre-wrap',
+  overflowWrap: 'break-word',
+  wordWrap: 'break-word'
+}
+
+const FormularioInput = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0px 0px 15px 15px',
+  borderRadius: '10px',
+  height: '50px',
+  width: '40%',
+  border: '1px solid black'
+}
+
+const buttonPost = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '30px',
+  width: '250px',
+  backgroundColor: '#282c34',
+  borderRadius: '10px',
+  color: '#FFFFFF',
+}
 
 export default class PostForm extends React.Component {
   state = {
@@ -46,28 +87,31 @@ export default class PostForm extends React.Component {
   render() {
     return (
       <Formulario>
-        <input
+        <textarea
+          style={FormularioInput}
           type="text"
-          placeholder="Digite o título da sua postagem (máximo 50 caracteres)"
+          placeholder="Título (máximo 50 caracteres)"
           onChange={this.onChangeTitulo}
           value={this.state.titulo}
           name="titulo"
         />
-        <input
+        <textarea
+          style={FormularioInputDescricao}
           type="text"
-          placeholder="Digite a descrição do seu post"
+          placeholder=" Descrição "
           onChange={this.onChangeDescricao}
           value={this.state.descricao}
           name="descricao"
         />
-        <input
+        <textarea
+          style={FormularioInput}
           type="text"
-          placeholder="Digite a URL da sua imagem (opcional)"
+          placeholder="URL da sua imagem (opcional)"
           onChange={this.onChangeImagem}
           value={this.state.imagem}
           name="imagem"
         />
-        <button onClick={this.adicionarPost}>Postar</button>
+        <button style= {buttonPost} onClick={this.adicionarPost}>Postar</button>
       </Formulario>
     );
   }
