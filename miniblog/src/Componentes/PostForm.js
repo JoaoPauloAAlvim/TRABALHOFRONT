@@ -24,7 +24,8 @@ const FormularioInputDescricao = {
   resize: 'none',
   whiteSpace: 'pre-wrap',
   overflowWrap: 'break-word',
-  wordWrap: 'break-word'
+  wordWrap: 'break-word',
+  resize: 'none'
 }
 
 const FormularioInput = {
@@ -36,7 +37,8 @@ const FormularioInput = {
   borderRadius: '10px',
   height: '50px',
   width: '40%',
-  border: '1px solid black'
+  border: '1px solid black',
+  resize: 'none'
 }
 
 const buttonPost = {
@@ -48,6 +50,8 @@ const buttonPost = {
   backgroundColor: '#282c34',
   borderRadius: '10px',
   color: '#FFFFFF',
+  fontWeight: 'bold',
+  border: 'none'
 }
 
 export default class PostForm extends React.Component {
@@ -108,7 +112,7 @@ export default class PostForm extends React.Component {
     });
   }
   };
-  
+
   render() {
     return (
       <Formulario>
