@@ -69,21 +69,46 @@ export default class PostForm extends React.Component {
     this.setState({ imagem: event.target.value });
   };
 
+   verificarURL = (url) => {
+    const regex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i;
+    return regex.test(url);
+  };
+
   adicionarPost = () => {
     const { titulo, descricao, imagem } = this.state;
-    const postImagem = imagem || "https://copilot.microsoft.com/images/create/quando-alguem-nao-colocar-uma-imagem-no-meu-imput-/1-66e5d40db6e6463f929973236a4286d6?id=%2fzPoBoa%2bJQ%2fwqmQXX%2fmK1w%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG4.De0JXDhVWzlHUqaVkVTU&skey=H7srwskiLk25M2JpVeLA5vJ6DXO_8p7LrIMt3YhhZP4&FORM=SYDBIC";
+    const postImagem = imagem || "https://www.shutterstock.com/shutterstock/videos/3430844685/thumb/1.jpg?ip=x480";
     const id = Math.random();
+    if(!titulo || !descricao){
+      alert("Existem campos faltando");
 
+      this.setState({
+        titulo: "",
+        descricao: "",
+        imagem: "",
+      });
+    }
+    else if(imagem){
+      this.verificarURL(imagem)
+      alert("URL inválida");
+
+      this.setState({
+        titulo: "",
+        descricao: "",
+        imagem: "",
+      });
+    }
+    else{
     const novoPost = { titulo, descricao, imagem: postImagem, id };
     this.props.onAddPost(novoPost);
-
+    
     this.setState({
       titulo: "",
       descricao: "",
       imagem: "",
     });
+  }
   };
-
+  
   render() {
     return (
       <Formulario>
