@@ -106,10 +106,10 @@ export default function PostItem({ posts, onRemovePost }) {
           <h3>{post.titulo}</h3>
           <div>
             <p style={ContainnerDescription}>
-              {post.descricao.length > 100
-                ? `${post.descricao.slice(0, 100)}...`
+              {post.descricao.length > 50
+                ? `${post.descricao.slice(0, 50)}...`
                 : post.descricao}
-              {post.descricao.length > 100 && (
+              {post.descricao.length > 50 && (
                 <button style={buttonModal} onClick={() => handleOpenModal(post.descricao)}>
                   Leia mais
                 </button>
