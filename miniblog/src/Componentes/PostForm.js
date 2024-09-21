@@ -86,6 +86,13 @@ export default class PostForm extends React.Component {
     const { titulo, descricao, imagem } = this.state;
     const postImagem = imagem || "https://www.shutterstock.com/shutterstock/videos/3430844685/thumb/1.jpg?ip=x480";
     const id = Math.random();
+
+    const maxLength = 500; 
+    const novaDescricao = descricao.length > maxLength 
+    ? `${descricao.slice(0, maxLength)}...` 
+    : descricao;
+
+    
     if(!titulo || !descricao){
       alert("Existem campos faltando");
 
@@ -104,9 +111,18 @@ export default class PostForm extends React.Component {
         descricao: "",
         imagem: "",
       });
+    }else if(titulo.length > 50){
+      alert("O título deve ter menos de 50 caracteres.")
+
+      this.setState({
+        titulo: "",
+        descricao: "",
+        imagem: "",
+      })
     }
     else{
-    const novoPost = { titulo, descricao, imagem: postImagem, id };
+    const novoPost = { titulo, descricao: novaDescricao, imagem: postImagem, id };
+    
     this.props.onAddPost(novoPost);
     
     this.setState({
