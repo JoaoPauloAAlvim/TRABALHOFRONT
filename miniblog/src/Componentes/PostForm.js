@@ -100,7 +100,7 @@ export default class PostForm extends React.Component {
         descricao: "",
         imagem: "",
       });
-    } else if (!this.validarURL(imagem)) {
+    } else if (!this.validarURL(postImagem)) {
       alert("URL inválida");
 
       this.setState({
