@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Miniblog X
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+O **Miniblog** é uma aplicação web desenvolvida em React, que permite aos usuários criar, visualizar e deletar postagens de texto com a possibilidade de adicionar imagens por meio de URLS. 
+O projeto foi criado como parte de um trabalho acadêmico para demonstrar a capacidade de construir uma aplicação funcional com React e styled-components.
 
-In the project directory, you can run:
+## Funcionalidades
 
-### `npm start`
+- **Lista de Postagens:** Exibe uma lista de postagens com título, conteúdo e imagem opcional. A imagem é exibida na lateral esquerda, e o conteúdo na lateral direita.
+- **Criação de Postagem:** Permite aos usuários criar novas postagens com um título, conteúdo e uma URL de imagem opcional.
+- **Visualização de Postagem:** Permite visualizar o conteúdo completo da postagem em uma modal ao clicar no botão "Leia mais".
+- **Deleção de Postagem:** Cada postagem possui um botão "Deletar" para remover a postagem da lista.
+- **Layout Responsivo:** Utiliza styled-components para um layout responsivo e atraente.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React:** Biblioteca JavaScript para construir interfaces de usuário.
+- **Styled-Components:** Biblioteca para estilização de componentes com CSS-in-JS.
+- **React Modal:** Para exibir o conteúdo completo da postagem em uma modal.
+- **npm** Gerenciador de pacotes para instalar dependências.
 
-### `npm test`
+## Estrutura do Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Componentes** reutilizáveis: Header, PostItem, PostList, PostForm Header.js PostItem.js PostList.js PostForm.js App.js 
 
-### `npm run build`
+## Instalação
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone o Repositório:**
+    **bash**
+     git clone https://github.com/JoaoPauloAAlvim/TRABALHOFRONT
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Navegue até o Diretório do Projeto:**
+   cd miniblog
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Instale as Dependências:**
+   npm install
 
-### `npm run eject`
+4. **Inicie o Servidor de Desenvolvimento:**
+   npm start
+   (A aplicação estará disponível em http://localhost:3000.)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Links**
+  Repositório no GitHub: https://github.com/JoaoPauloAAlvim/TRABALHOFRONT
+  Aplicação ao Vivo no Surge: https://young-girl.surge.sh/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Contribuição:**
+  JoaoPauloAAlvim
+  GabrielSetta
+  HenriqueAugustoNS
