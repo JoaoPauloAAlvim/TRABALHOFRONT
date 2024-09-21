@@ -128,10 +128,17 @@ export default class PostForm extends React.Component {
       });
     }
   };
+  
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.adicionarPost();
+    }
+  };
 
   render() {
     return (
-      <Formulario>
+      <Formulario onKeyPress={this.handleKeyPress}>
         <textarea
           style={FormularioInput}
           type="text"
