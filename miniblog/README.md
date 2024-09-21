@@ -41,8 +41,8 @@ O projeto foi criado como parte de um trabalho acadêmico para demonstrar a capa
    (A aplicação estará disponível em http://localhost:3000.)
 
 **Links**
-  Repositório no GitHub: https://github.com/JoaoPauloAAlvim/TRABALHOFRONT
-  Aplicação ao Vivo no Surge: https://young-girl.surge.sh/
+  Repositório no GitHub: https://github.com/JoaoPauloAAlvim/TRABALHOFRONT  
+  Aplicação ao Vivo no Surge: https://military-property.surge.sh/
 
 **Contribuição:**
   JoaoPauloAAlvim
