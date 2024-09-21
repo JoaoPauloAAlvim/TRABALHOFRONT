@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const PostBlog = styled.div`
@@ -64,28 +64,81 @@ const buttonModal = {
   border: 'none'
 }
 
-export default class PostItem extends React.Component {
-  render() {
-    const { posts, onRemovePost } = this.props;
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-    const listagem = posts.map((post) => (
-      <div key={post.id}>
-        <PostBlog>
-          <img style={imgPostStyle} src={post.imagem} alt={post.descricao} />
-          <PostTextos>
-            <h3>{post.titulo}</h3>
-            <div>
-              <p style={ContainnerDescription}> " {post.descricao} " <button style= {buttonModal}>Leia mais</button> </p>
-            </div> 
-            <div> 
-              <button style= {buttonDelete} onClick={() => onRemovePost(post.id)}>Deletar</button>
-            </div>
-          </PostTextos>
-         </PostBlog> 
-         
-      </div>
-    ));
+const ModalContent = styled.div`
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+`;
 
-    return <div style={containerPost}>{listagem}</div>;
-  }
+export default function PostItem({ posts, onRemovePost }) {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+
+  const handleOpenModal = (description) => {
+    setModalContent(description);
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const listagem = posts.map((post) => (
+    <div key={post.id}>
+      <PostBlog>
+        <img style={imgPostStyle} src={post.imagem} alt={post.descricao} />
+        <PostTextos>
+          <h3>{post.titulo}</h3>
+          <div>
+            <p style={ContainnerDescription}>
+              {post.descricao.length > 100
+                ? `${post.descricao.slice(0, 100)}...`
+                : post.descricao}
+              {post.descricao.length > 100 && (
+                <button style={buttonModal} onClick={() => handleOpenModal(post.descricao)}>
+                  Leia mais
+                </button>
+              )}
+            </p>
+          </div>
+          <div>
+            <button style={buttonDelete} onClick={() => onRemovePost(post.id)}>
+              Deletar
+            </button>
+          </div>
+        </PostTextos>
+      </PostBlog>
+    </div>
+  ));
+
+  return (
+    <div style={containerPost}>
+      {listagem}
+
+      {modalVisible && (
+        <ModalBackground onClick={handleCloseModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <h2>Descrição Completa</h2>
+            <p>{modalContent}</p>
+            <button onClick={handleCloseModal}>Fechar</button>
+          </ModalContent>
+        </ModalBackground>
+      )}
+    </div>
+  );
 }

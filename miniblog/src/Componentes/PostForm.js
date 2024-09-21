@@ -92,8 +92,7 @@ export default class PostForm extends React.Component {
     ? `${descricao.slice(0, maxLength)}...` 
     : descricao;
 
-    
-    if(!titulo || !descricao){
+    if (!titulo || !descricao) {
       alert("Existem campos faltando");
 
       this.setState({
@@ -101,9 +100,7 @@ export default class PostForm extends React.Component {
         descricao: "",
         imagem: "",
       });
-    }
-    else if(!this.validarURL(imagem)){
-      this.verificarURL(imagem)
+    } else if (!this.validarURL(imagem)) {
       alert("URL inválida");
 
       this.setState({
@@ -111,26 +108,25 @@ export default class PostForm extends React.Component {
         descricao: "",
         imagem: "",
       });
-    }else if(titulo.length > 50){
-      alert("O título deve ter menos de 50 caracteres.")
+    } else if (titulo.length > 50) {
+      alert("O título deve ter menos de 50 caracteres.");
 
       this.setState({
         titulo: "",
         descricao: "",
         imagem: "",
-      })
+      });
+    } else {
+      const novoPost = { titulo, descricao: novaDescricao, imagem: postImagem, id };
+    
+      this.props.onAddPost(novoPost);
+    
+      this.setState({
+        titulo: "",
+        descricao: "",
+        imagem: "",
+      });
     }
-    else{
-    const novoPost = { titulo, descricao: novaDescricao, imagem: postImagem, id };
-    
-    this.props.onAddPost(novoPost);
-    
-    this.setState({
-      titulo: "",
-      descricao: "",
-      imagem: "",
-    });
-  }
   };
 
   render() {
@@ -147,7 +143,7 @@ export default class PostForm extends React.Component {
         <textarea
           style={FormularioInputDescricao}
           type="text"
-          placeholder=" Descrição "
+          placeholder="Descrição"
           onChange={this.onChangeDescricao}
           value={this.state.descricao}
           name="descricao"
@@ -160,7 +156,7 @@ export default class PostForm extends React.Component {
           value={this.state.imagem}
           name="imagem"
         />
-        <button style= {buttonPost} onClick={this.adicionarPost}>Postar</button>
+        <button style={buttonPost} onClick={this.adicionarPost}>Postar</button>
       </Formulario>
     );
   }
