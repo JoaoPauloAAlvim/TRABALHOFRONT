@@ -73,10 +73,14 @@ export default class PostForm extends React.Component {
     this.setState({ imagem: event.target.value });
   };
 
-   verificarURL = (url) => {
-    const regex = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg|webp))$/i;
-    return regex.test(url);
-  };
+  validarURL(url) {
+    try {
+      new URL(url);
+      return true; 
+    } catch (err) {
+      return false;
+    }
+  }
 
   adicionarPost = () => {
     const { titulo, descricao, imagem } = this.state;
@@ -91,7 +95,7 @@ export default class PostForm extends React.Component {
         imagem: "",
       });
     }
-    else if(imagem){
+    else if(!this.validarURL(imagem)){
       this.verificarURL(imagem)
       alert("URL inválida");
 
